@@ -27,3 +27,6 @@ Mark cart as done
 Expiring shopping carts
 Create the state field index for the carts
 Create the reservations._id field index
+
+
+### Editing for show
