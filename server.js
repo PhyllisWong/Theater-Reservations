@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
   res.send('Hello Cats');
 });
 
+app.get('/cats', (req, res) => {
+  res.send('Kitties!!!!');
+});
+
 
 
 // Server
