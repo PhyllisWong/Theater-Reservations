@@ -1,32 +1,13 @@
-## Notes for Theater Reservation App
-There will be a Theater Model with:
-* name
-* seats
-* seatsAvailable
+## Dani's Theater API: Persisting Reservations via Express/MongoDB
 
+### Purpose
 
-Cart is another Model for a reservation Schema
-* state
-* total
-* reservations
-* modifiedOn
-* createdOn
+[**TODO**] Add description of the projects purpose.
 
+### How to Use This API
 
-Seats are an array [row, seat]
-Sessions are another model
+[**TODO**] List **each route individually** and one to two sentences describing the intention of each route. You MUST include practical examples of how to call each route!
 
-## Operations are basically the routes
-Add a new session
-Reserve seats in a session
-Add reservation to the cart
-Release all the reservations for a cart
-Create receipt
-Commit session reservations
-Mark cart as done
-Expiring shopping carts
-Create the state field index for the carts
-Create the reservations._id field index
+### What I Learned
 
-
-### Editing for show
+[**TODO**] Add bullet points describing what you learned by implementing this project.
