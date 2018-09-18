@@ -15,25 +15,32 @@ let db;
 
 
 // ******  ROUTES  ****** //
+app.get('/', (req, res) => {
+  return res.json({thisKey: "hello cats"});
+});
+
+
+
 // Example stub:
-app.get('/theater/name-of-route', function(req, res) {
+app.get('/theater/name-of-route', (req, res) => {
   res.json({'stub': `[${req.originalUrl}] Endpoint works! Replace me in Part 2.`});
 });
 
 
 
-/* Mongo Database Connection */
-// Use connect method to connect to the server
-MongoClient.connect(mongoUri, (err, client) => {
-  assert.equal(null, err);
-  console.log("Connected successfully to server");
 
-  db = client.db(dbName);
-  db.collection('theaters');
-  db.collection('sessions');
+app.listen(3000, () => {
+  console.log('Example app listening on port 3000!');
+  /* Mongo Database Connection */
+  // Use connect method to connect to the server
+  MongoClient.connect(mongoUri, (err, client) => {
+    assert.equal(null, err);
+    console.log("Connected successfully to server");
 
-  client.close();
+    db = client.db(dbName);
+    db.collection('theaters');
+    db.collection('sessions');
+
+    console.log("mongo connected!");
+  });
 });
-
-
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
