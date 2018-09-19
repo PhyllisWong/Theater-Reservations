@@ -25,37 +25,6 @@ app.get('/theaters', (req, res) => {
   });
 });
 
-// Show one theater
-app.get('/theaters/:id', (req, res) => {
-  // return a single theater
-});
-
-// Show all movies at theater
-app.get('/theaters/:id/movies', (req, res) => {
-  // return all the movies at a single theater
-});
-
-// Show one movie at theater
-app.get('/theaters/:id/movies/:movieId', (req, res) => {
-  // return a single movie at a single theater
-});
-
-// Show all times for one movie
-app.get('/theaters/:id/:movieId/times', (req, res) => {
-  // Return all the start times for this movie at a single theater
-});
-
-// Show one time for movie
-app.get('/theaters/:id/:movieId/times/:timeId', (req, res) => {
-  // return a single start time for a single movie at a single theater
-});
-
-// Reserve movie (purchase a ticket)
-app.post('/theaters/:id/:movieId/times/:timeId', (req, res) => {
-  // return a confirmation that the movie was booked
-  // Perhaps return a receipt
-});
-
 
 // Insert theatres
 app.post('/theaters', (req, res) =>{
@@ -95,42 +64,67 @@ app.post('/theaters', (req, res) =>{
 });
 
 
-// POST NEW SHOWING - create new sessions/sessions
-app.post('/theaters/:id/new', (req, res) =>{
-  let id = req.params.id;
-
-  let theaters = db.collection('theaters');
-  let sessions = db.collection('sessions');
-
-  let theater;
-
-  theaters.find({ "_id" : id}).toArray((err, docs) =>{
-    theater = docs[0];
-
-    sessions.insertOne({
-      "name" : "Wolverine",
-      "description" : "Best Xman Movie EVAR",
-      "id" : id,
-      "start" : Date("2015-03-11T15:00:00.000Z"),
-      "end" : Date("2015-03-11T16:00:00.000Z"), // Do we need this constraint?
-      "price" : 10,
-      "seatsAvailable" : 100,
-      "seats" : [
-          [0,0,0,1,1,0,0,0],
-          [0,0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0,0],
-          [0,0,0,0,0,0,0,0],
-        ],
-      "reservations" : [
-        [1, 4], [1, 5]
-        ]
-    });
-
-    res.send("Inserted session into theater")
-  });
-  res.send("Did not insert!")
+// Show one theater
+app.get('/theaters/:id', (req, res) => {
+  // return a single theater
 });
+
+// Show all movies at theater
+app.get('/theaters/:id/movies', (req, res) => {
+  // return all the movies at a single theater
+});
+
+// Show one movie at theater
+app.get('/theaters/:id/movies/:movieId', (req, res) => {
+  // return a single movie at a single theater
+});
+
+// Show all times for one movie
+app.get('/theaters/:id/:movieId/times', (req, res) => {
+  // Return all the start times for this movie at a single theater
+});
+
+// Show one time for movie
+app.get('/theaters/:id/:movieId/times/:timeId', (req, res) => {
+  // return a single start time for a single movie at a single theater
+});
+
+// Reserve movie (purchase a ticket)
+app.post('/theaters/:id/:movieId/times/:timeId', (req, res) => {
+  // return a confirmation that the movie was booked
+  // Perhaps return a receipt
+});
+
+
+// POST NEW SESSION - create new sessions/sessions
+// app.post('/theaters/:id/new', (req, res) => {
+//   let id = req.params.theaterId;
+//
+//   let theaters = db.collection('theaters');
+//   let sessions = db.collection('sessions');
+//
+//   let theater;
+//
+//   theaters.find({ "_id" : id}).toArray(err)=> {
+//     theater = docs[0];
+//
+//     sessions.insertOne({
+//       _id: 1,
+//       name : "Wolverine",
+//       description : "Best Xman Movie EVAR",
+//       theaterId : id,
+//       start : Date("2015-03-11T15:00:00.000Z"),
+//       end : Date("2015-03-11T16:00:00.000Z"),
+//       price : 10,
+//       seatsAvailable : 100,
+//       seats : theater.seats,
+//       reservations : []
+//     });
+//
+//     res.send("Inserted session into theater")
+//   });
+//   res.send("Did not insert!!!");
+// });
 
 
 
